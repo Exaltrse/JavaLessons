@@ -97,7 +97,7 @@ public class Zadanija {
     //Task 7.  Write a Java program to remove a specific element from an array.
     public int[] Task7_Remove(int[] intArray, int indexToRemove) {
         if (intArray.length <= indexToRemove) return null;
-        int[] tmpArray = new int[intArray.length - 2];
+        int[] tmpArray = new int[intArray.length - 1];
         for (int i = 0, k = 0; (k < tmpArray.length) && (i < intArray.length); i++) {
             if (i == indexToRemove) continue;
             tmpArray[k] = intArray[i];
@@ -201,7 +201,7 @@ public class Zadanija {
         return false;
     }
 
-    private String[] RemoveIndexFromArray(String[] arr, int index) {
+    public String[] RemoveIndexFromArray(String[] arr, int index) {
         if (index>=arr.length) return null;
         String[] tmpArray = new String[arr.length - 1];
         for (int i = 0, k = 0; i < tmpArray.length; i++, k++) {
@@ -250,9 +250,9 @@ public class Zadanija {
     }
 
     //Task 16. Write a Java program to remove duplicate elements from an array.
-    public void Task16_RemoveDuplicates(int[] intArray) {
+    public int[] Task16_RemoveDuplicates(int[] intArray) {
         int[] duplicates = Task12_FindDuplicates(intArray);
-        if (duplicates.length == 0) return;
+        if (duplicates.length == 0) return null;
         int[] tmpArray = Task8_ArrayIteratingCopy(intArray);
         for (int i : duplicates) {
             while (Task5_Contains(tmpArray, i)) {
@@ -261,7 +261,7 @@ public class Zadanija {
                 tmpArray = Task7_Remove(tmpArray, t);
             }
         }
-        intArray = tmpArray;
+        return tmpArray;
     }
 
     //Task 17. Write a Java program to find the second largest element in an array.
@@ -291,12 +291,12 @@ public class Zadanija {
         int[] array2 = new int[a];
         Random r = new Random();
         for (int i = 0; i < a; i++) {
-            array1[i] = r.nextInt();
-            array2[i] = r.nextInt();
+            array1[i] = r.nextInt(400);
+            array2[i] = r.nextInt(50);
         }
-        System.out.println("Массив 1. ");
+        System.out.println("\nМассив 1. ");
         PrintArray(array1);
-        System.out.println("Массив 2. ");
+        System.out.println("\nМассив 2. ");
         PrintArray(array2);
     }
 
