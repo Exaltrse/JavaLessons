@@ -232,6 +232,7 @@ public class Zadanija {
         String[] results = new String[0];
         for (String s : stringArray1) {
             if (ContainString(stringArray2, s)) {
+                if(ContainString(results,s)) continue;
                 results = AddIndexToArray(results, results.length, s);
             }
         }
