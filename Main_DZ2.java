@@ -161,11 +161,15 @@ public class Main_DZ2 {
             //Neshta ne to.
             System.out.println("Задание 14");
             String[] stringArray1 = z.CreateStringArray();
-            String[] stringArray2 = z.CreateStringArray();
-            stringArray1 = z.RemoveIndexFromArray(stringArray1, 3);
-            stringArray1 = z.RemoveIndexFromArray(stringArray1, 4);
-            stringArray1 = z.RemoveIndexFromArray(stringArray1, 5);
-            stringArray1 = z.RemoveIndexFromArray(stringArray1, 6);
+            String[] stringArray2 = {
+                                        "Lorem ipsum dolor ",
+                                        "sit amet, ",
+                                        "И воздел он свое ",
+                                        "пылающее сердце,",
+                                        "и оно горело так ярко ",
+                                        "как солнце ",
+                                        "и даже ярче солнца",
+                                        "Excepteur sint occaecat cupidatat "};
             String[] result = z.Task14_Compare(stringArray1, stringArray2);
             z.PrintSArray(result);
             System.out.println("\n__________");
@@ -237,5 +241,9 @@ public class Main_DZ2 {
             System.out.println("\n__________");
         }
 
+
+
     }
+
+
 }
