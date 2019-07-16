@@ -247,10 +247,7 @@ public class Main_DZ2 {
 
 }
 
-import java.util.ArrayList;
-import java.util.Random;
-
-public class Zadanija {
+class Zadanija {
     //Task 1. Write a Java program to sort a numeric array and a string array.
     public int[] Task1_Sort(int[] intArray) {
         if (intArray.length <= 1) return null;
