@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Main_DZ2 {
@@ -156,7 +157,85 @@ public class Main_DZ2 {
             System.out.println("\n__________");
         }
 
+        {
+            //Neshta ne to.
+            System.out.println("Задание 14");
+            String[] stringArray1 = z.CreateStringArray();
+            String[] stringArray2 = z.CreateStringArray();
+            stringArray1 = z.RemoveIndexFromArray(stringArray1, 3);
+            stringArray1 = z.RemoveIndexFromArray(stringArray1, 4);
+            stringArray1 = z.RemoveIndexFromArray(stringArray1, 5);
+            stringArray1 = z.RemoveIndexFromArray(stringArray1, 6);
+            String[] result = z.Task14_Compare(stringArray1, stringArray2);
+            z.PrintSArray(result);
+            System.out.println("\n__________");
+        }
+
+        {
+            System.out.println("Задание 15");
+            int[] intArray = z.CreateRandomIntArray(16);
+            System.out.println("Массив 1.");
+            z.PrintArray(intArray);
+            int[] intArray2 = z.CreateRandomIntArray(16);
+            System.out.println("\nМассив 2.");
+            z.PrintArray(intArray2);
+            int[] results = z.Task15_Common(intArray,intArray2);
+            System.out.println("\nОбщие элементы в массивах: ");
+            z.PrintArray(results);
+            System.out.println("\n__________");
+        }
+
+        {
+            System.out.println("Задание 16");
+            int[] intArray = z.CreateRandomIntArray(14);
+            int int1 = intArray[3], int2 = intArray[4];
+            intArray = z.Task9_InsertValueToIndex(intArray, 4, int1);
+            intArray = z.Task9_InsertValueToIndex(intArray, 5, int2);
+            System.out.println("Исходный массив.");
+            z.PrintArray(intArray);
+            System.out.println("\nМассив после удаления дублирующихся значений.");
+            int[] result = z.Task16_RemoveDuplicates(intArray);
+            z.PrintArray(result);
+            System.out.println("\n__________");
+        }
+
+        {
+            System.out.println("Задание 17");
+            int[] intArray = z.CreateRandomIntArray(16);
+            System.out.println("Исходный массив.");
+            z.PrintArray(intArray);
+            int result = z.Task17_SecondLargest(intArray);
+            System.out.println("\nВторое по величине значение начиная с максимального - "+result+".");
+            System.out.println("\n__________");
+        }
+
+        {
+            System.out.println("Задание 18");
+            int[] intArray = z.CreateRandomIntArray(16);
+            System.out.println("Исходный массив.");
+            z.PrintArray(intArray);
+            int result = z.Task18_SecondSmallest(intArray);
+            System.out.println("\nВторое по величине значение начиная с минимального - "+result+".");
+            System.out.println("\n__________");
+        }
+
+        {
+            System.out.println("Задание 19");
+            int[] intArray = z.CreateRandomIntArray(16);
+            z.Task19_Add2Matrices();
+            System.out.println("\n__________");
+        }
+
+        {
+            System.out.println("Задание 20");
+            int[] intArray = z.CreateRandomIntArray(16);
+            System.out.println("Исходный массив.");
+            z.PrintArray(intArray);
+            ArrayList<Integer> intAL = z.Task20(intArray);
+            System.out.println("\nArrayList.");
+            System.out.println(intAL.toString());
+            System.out.println("\n__________");
+        }
+
     }
-
-
 }
