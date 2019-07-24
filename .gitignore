@@ -21,3 +21,13 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+out/production/Zanjatki3/META-INF/Zanjatki3.kotlin_module
+.idea/workspace.xml
+.idea/uiDesigner.xml
+.idea/modules.xml
+.idea/misc.xml
+Zanjatki3.iml
+src/Less5/ParentAbstract.java
+src/Less5/FirstInterface.java
+src/Less5/B.java
+src/Less5/A.java
