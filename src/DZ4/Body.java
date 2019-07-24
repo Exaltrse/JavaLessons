@@ -12,8 +12,8 @@ public class Body {
     private String material;
     private int unitPrice;
 
-    static{
-        manufacturer = Constants.NO_NAME;
+    static {
+        manufacturer = Supply.NO_NAME;
     }
 
     public Body() {
@@ -71,17 +71,20 @@ public class Body {
     }
 
     public String getFullName() {
-        return this.name+" "+this.mark;
+        return this.name + " " + this.mark;
     }
 
-    public static Body RandomBody()
-    {
+    public static Body RandomBody() {
         Body body = new Body();
-        body.setName(Constants.RandomString(10));
-        body.setMark(Constants.RandomString(5));
-        body.setMaterial(Constants.RandomString(16));
-        body.setUnitPrice((Constants.RandomInt(789)+1)*100);
+        body.setName(Supply.RandomString(10));
+        body.setMark(Supply.RandomString(5));
+        body.setMaterial(Supply.RandomString(16));
+        body.setUnitPrice((Supply.RandomInt(789) + 1) * 100);
         return body;
+    }
+
+    protected Body toClone() {
+        return new Body(this.name, this.mark, this.material, this.unitPrice);
     }
 
     @Override

@@ -17,33 +17,36 @@ public class Main {
     public static void main(String[] args) {
         Random r = new Random();
         ArrayList<Car> carList = new ArrayList<Car>();
-        for(int i=0; i<(r.nextInt(40)+1);i++){
+        for (int i = 0; i < (r.nextInt(40) + 1); i++) {
             carList.add(Car.RandomCar());
         }
+//        //Создаем копию для последующего контроля работы.
+//        ArrayList<Car> bufferCarList = new ArrayList<Car>();
+//        for(Car c:carList){
+//            bufferCarList.add(c.toClone());
+//        }
         System.out.println("Do izmenenij.");
         printCar(carList);
         Car.setManufacturer("IzmenennajaFirma");
-        for (Car car:carList)
-        {
-            switch(r.nextInt(5))
-            {
-                case 0:{
+        for (Car car : carList) {
+            switch (r.nextInt(5)) {
+                case 0: {
                     car.setEngeen(Engeen.RandomEngeen());
                     break;
                 }
-                case 1:{
+                case 1: {
                     car.setBody(Body.RandomBody());
                     break;
                 }
-                case 2:{
+                case 2: {
                     car.setAcousticSystem(AcousticSystem.RandomAcousticSystem());
                     break;
                 }
-                case 3:{
+                case 3: {
                     car.setVehicleInterior(VehicleInterior.RandomVehicleInterior());
                     break;
                 }
-                case 4:{
+                case 4: {
                     car.setWheels(Wheels.RandomWheels());
                     break;
                 }
@@ -54,13 +57,27 @@ public class Main {
         System.out.println("Posle izmenenij.");
         printCar(carList);
 
+//        //Для более подробного изучения вносимых изменений.
+//        System.out.println("\n\n");
+//        printCar(bufferCarList);
+//        System.out.println("\n\n\nДля наглядности более подробное содержимое списков до и после изменений:\n");
+//        System.out.println("До изменений.");
+//        int counter = 1;
+//        for(Car c:bufferCarList){
+//            System.out.println(counter++ + "  " + c);
+//        }
+//        System.out.println("После изменений.");
+//        counter = 1;
+//        for(Car c:carList){
+//            System.out.println(counter++ + "  " + c);
+//        }
+
     }
 
-    static void printCar(ArrayList<Car> carList)
-    {
-        for(Car car:carList)
-        {
-            System.out.println(Car.getManufacturer()+"\t"+car.getFullName()+"\tCost: "+car.getCost());
+    private static void printCar(ArrayList<Car> carList) {
+        int counter = 1;
+        for (Car car : carList) {
+            System.out.println(counter++ + ".\t" + Car.getManufacturer() + "\t" + car.getFullName() + "\tCost: " + car.getCost());
         }
 
     }

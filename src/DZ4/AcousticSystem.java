@@ -12,16 +12,16 @@ public class AcousticSystem {
     private int controlCenterUnutPrice;
     private int speakersUnitPrice;
 
-    static{
-        manufacturer = Constants.NO_NAME;
+    static {
+        manufacturer = Supply.NO_NAME;
     }
 
     public AcousticSystem() {
-        this.name = Constants.NO_NAME;
-        this.mark = Constants.NO_NAME;
-        this.numberOfSpeakers = Constants.BASE_NUMBER_VALUE;
-        this.controlCenterUnutPrice = Constants.BASE_PRICE_VALUE;
-        this.speakersUnitPrice = Constants.BASE_PRICE_VALUE;
+        this.name = Supply.NO_NAME;
+        this.mark = Supply.NO_NAME;
+        this.numberOfSpeakers = Supply.BASE_NUMBER_VALUE;
+        this.controlCenterUnutPrice = Supply.BASE_PRICE_VALUE;
+        this.speakersUnitPrice = Supply.BASE_PRICE_VALUE;
     }
 
     public AcousticSystem(String name, String mark, int numberOfSpeakers, int controlCenterUnutPrice, int speakersUnitPrice) {
@@ -81,21 +81,25 @@ public class AcousticSystem {
     }
 
     public int getCost() {
-        return this.numberOfSpeakers*this.speakersUnitPrice+this.controlCenterUnutPrice;
+        return this.numberOfSpeakers * this.speakersUnitPrice + this.controlCenterUnutPrice;
     }
 
     public String getFullName() {
-        return this.name+" "+this.mark;
+        return this.name + " " + this.mark;
     }
 
-    public static AcousticSystem RandomAcousticSystem(){
+    public static AcousticSystem RandomAcousticSystem() {
         AcousticSystem acousticSystem = new AcousticSystem();
-        acousticSystem.setName(Constants.RandomString(10));
-        acousticSystem.setMark(Constants.RandomString(5));
-        acousticSystem.setNumberOfSpeakers(Constants.RandomInt(12));
-        acousticSystem.setControlCenterUnutPrice((Constants.RandomInt(50)+1)*10);
-        acousticSystem.setSpeakersUnitPrice(Constants.RandomInt(30)+1);
+        acousticSystem.setName(Supply.RandomString(10));
+        acousticSystem.setMark(Supply.RandomString(5));
+        acousticSystem.setNumberOfSpeakers(Supply.RandomInt(12));
+        acousticSystem.setControlCenterUnutPrice((Supply.RandomInt(50) + 1) * 10);
+        acousticSystem.setSpeakersUnitPrice(Supply.RandomInt(30) + 1);
         return acousticSystem;
+    }
+
+    protected AcousticSystem toClone() {
+        return new AcousticSystem(this.name, this.mark, this.numberOfSpeakers, this.controlCenterUnutPrice, this.speakersUnitPrice);
     }
 
     @Override

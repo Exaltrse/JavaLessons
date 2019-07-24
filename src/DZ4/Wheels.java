@@ -11,14 +11,14 @@ public class Wheels {
     private int unitPrice;
 
     static {
-        manufacturer = Constants.NO_NAME;
+        manufacturer = Supply.NO_NAME;
     }
 
     public Wheels() {
-        this.name = Constants.NO_NAME;
-        this.mark = Constants.NO_NAME;
-        this.number = Constants.BASE_NUMBER_VALUE;
-        this.unitPrice = Constants.BASE_PRICE_VALUE;
+        this.name = Supply.NO_NAME;
+        this.mark = Supply.NO_NAME;
+        this.number = Supply.BASE_NUMBER_VALUE;
+        this.unitPrice = Supply.BASE_PRICE_VALUE;
     }
 
     public Wheels(String name, String mark, int number, int unitPrice) {
@@ -69,21 +69,24 @@ public class Wheels {
     }
 
     public int getCost() {
-        return this.number*this.unitPrice;
+        return this.number * this.unitPrice;
     }
 
     public String getFullName() {
-        return this.name+" "+this.mark;
+        return this.name + " " + this.mark;
     }
 
-    public static Wheels RandomWheels()
-    {
+    public static Wheels RandomWheels() {
         Wheels wheels = new Wheels();
-        wheels.setName(Constants.RandomString(12));
-        wheels.setMark(Constants.RandomString(6));
-        wheels.setNumber(Constants.RandomInt(4)+1);
-        wheels.setUnitPrice((Constants.RandomInt(50)+1)*10);
+        wheels.setName(Supply.RandomString(12));
+        wheels.setMark(Supply.RandomString(6));
+        wheels.setNumber(Supply.RandomInt(4) + 1);
+        wheels.setUnitPrice((Supply.RandomInt(50) + 1) * 10);
         return wheels;
+    }
+
+    protected Wheels toClone() {
+        return new Wheels(this.name, this.mark, this.number, this.unitPrice);
     }
 
     @Override

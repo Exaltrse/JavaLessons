@@ -10,15 +10,15 @@ public class VehicleInterior {
     private String color;
     private int unitPrice;
 
-    static{
-        manufacturer = Constants.NO_NAME;
+    static {
+        manufacturer = Supply.NO_NAME;
     }
 
     public VehicleInterior() {
-        this.name = Constants.NO_NAME;
-        this.mark = Constants.NO_NAME;
-        this.color = Constants.NO_NAME;
-        this.unitPrice = Constants.BASE_PRICE_VALUE;
+        this.name = Supply.NO_NAME;
+        this.mark = Supply.NO_NAME;
+        this.color = Supply.NO_NAME;
+        this.unitPrice = Supply.BASE_PRICE_VALUE;
     }
 
     public VehicleInterior(String name, String mark, String color, int unitPrice) {
@@ -73,16 +73,20 @@ public class VehicleInterior {
     }
 
     public String getFullName() {
-        return this.name+" "+this.mark;
+        return this.name + " " + this.mark;
     }
 
-    public static VehicleInterior RandomVehicleInterior(){
+    public static VehicleInterior RandomVehicleInterior() {
         VehicleInterior vehicleInterior = new VehicleInterior();
-        vehicleInterior.setName(Constants.RandomString(15));
-        vehicleInterior.setMark(Constants.RandomString(6));
-        vehicleInterior.setColor(Constants.RandomString(7));
-        vehicleInterior.setUnitPrice((Constants.RandomInt(400)+1)*10);
+        vehicleInterior.setName(Supply.RandomString(15));
+        vehicleInterior.setMark(Supply.RandomString(6));
+        vehicleInterior.setColor(Supply.RandomString(7));
+        vehicleInterior.setUnitPrice((Supply.RandomInt(400) + 1) * 10);
         return vehicleInterior;
+    }
+
+    protected VehicleInterior toClone() {
+        return new VehicleInterior(this.name, this.mark, this.color, this.unitPrice);
     }
 
     @Override

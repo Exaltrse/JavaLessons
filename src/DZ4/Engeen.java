@@ -11,16 +11,16 @@ public class Engeen {
     private int enginePower;
     private int unitPrice;
 
-    static{
-        manufacturer = Constants.NO_NAME;
+    static {
+        manufacturer = Supply.NO_NAME;
     }
 
     public Engeen() {
-        this.name = Constants.NO_NAME;
-        this.mark = Constants.NO_NAME;
-        this.material = Constants.NO_NAME;
-        this.enginePower = Constants.BASE_NUMBER_VALUE;
-        this.unitPrice = Constants.BASE_PRICE_VALUE;
+        this.name = Supply.NO_NAME;
+        this.mark = Supply.NO_NAME;
+        this.material = Supply.NO_NAME;
+        this.enginePower = Supply.BASE_NUMBER_VALUE;
+        this.unitPrice = Supply.BASE_PRICE_VALUE;
     }
 
     public Engeen(String name, String mark, String material, int enginePower, int unitPrice) {
@@ -84,17 +84,21 @@ public class Engeen {
     }
 
     public String getFullName() {
-        return this.name+" "+this.mark;
+        return this.name + " " + this.mark;
     }
 
-    public static Engeen RandomEngeen(){
+    public static Engeen RandomEngeen() {
         Engeen engeen = new Engeen();
-        engeen.setName(Constants.RandomString(10));
-        engeen.setMark(Constants.RandomString(5));
-        engeen.setMaterial(Constants.RandomString(8));
-        engeen.setEnginePower((Constants.RandomInt(60)+2)*10);
-        engeen.setUnitPrice((Constants.RandomInt(315)+1)*60);
+        engeen.setName(Supply.RandomString(10));
+        engeen.setMark(Supply.RandomString(5));
+        engeen.setMaterial(Supply.RandomString(8));
+        engeen.setEnginePower((Supply.RandomInt(60) + 2) * 10);
+        engeen.setUnitPrice((Supply.RandomInt(315) + 1) * 60);
         return engeen;
+    }
+
+    protected Engeen toClone() {
+        return new Engeen(this.name, this.mark, this.material, this.enginePower, this.unitPrice);
     }
 
     @Override

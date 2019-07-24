@@ -19,8 +19,7 @@ public class Car {
     private boolean svobodna;
     double ves;
 
-    public Car()
-    {
+    public Car() {
         Car tmp = Car.RandomCar();
         this.name = tmp.name;
         this.svobodna = tmp.svobodna;
@@ -28,21 +27,18 @@ public class Car {
         counter++;
     }
 
-    public Car(String name, boolean svobodna, double ves)
-    {
-        this.name=name;
+    public Car(String name, boolean svobodna, double ves) {
+        this.name = name;
         this.svobodna = svobodna;
         this.ves = ves;
         counter++;
     }
 
-    public int getCounter()
-    {
+    public int getCounter() {
         return counter;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return this.name;
     }
 
@@ -50,8 +46,7 @@ public class Car {
         this.name = name;
     }
 
-    public boolean getSvobodna()
-    {
+    public boolean getSvobodna() {
         return this.svobodna;
     }
 
@@ -69,77 +64,64 @@ public class Car {
 
     //----------
 
-    public String CarType()
-    {
+    public String CarType() {
         String[] results = {"легковой", "джип", "грузовой"};
         //я не знаю, как логично дабл запихать в свитч, если в джаве свитч не поддерживает диапазоны!!!
         int switcher = 0;
-        if((ves>=0) && (ves<500)) switcher = 0;
-        else if ((ves>=500)&&(ves<1000)) switcher = 1;
+        if ((ves >= 0) && (ves < 500)) switcher = 0;
+        else if ((ves >= 500) && (ves < 1000)) switcher = 1;
         else switcher = 2;
-        switch (switcher)
-        {
-            case 0:
-            {
+        switch (switcher) {
+            case 0: {
                 return results[0];
             }
-            case 1:
-            {
+            case 1: {
                 return results[1];
             }
-            case 2:
-            {
+            case 2: {
                 return results[2];
             }
-            default:
-            {
+            default: {
                 return "тип не определен";
             }
         }
     }
 
-    public static Car RandomCar()
-    {
-        String name="";
+    public static Car RandomCar() {
+        String name = "";
         Random r = new Random();
-        double ves = ((double)Math.round(r.nextDouble()*300000))/100;
+        double ves = ((double) Math.round(r.nextDouble() * 300000)) / 100;
         boolean svobodna = r.nextBoolean();
-        int dlinnaSlova = r.nextInt(15)+5;
-        for(int i=0; i<=dlinnaSlova; i++)
-        {
-            name+=(char)(r.nextInt(26) + 'a');
+        int dlinnaSlova = r.nextInt(15) + 5;
+        for (int i = 0; i <= dlinnaSlova; i++) {
+            name += (char) (r.nextInt(26) + 'a');
         }
-        return new Car(name, svobodna,ves);
+        return new Car(name, svobodna, ves);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         String s = "";
-        if (this.svobodna) s+="svobodna";
-                else s+="zanjata";
-         StringBuilder str = new StringBuilder(60);
-         str.setLength(60);
-         for(int i=0; i<60;i++)
-        {
-            str.insert(i,' ');
+        if (this.svobodna) s += "svobodna";
+        else s += "zanjata";
+        StringBuilder str = new StringBuilder(60);
+        str.setLength(60);
+        for (int i = 0; i < 60; i++) {
+            str.insert(i, ' ');
         }
-         str.insert(0, name);
-         str.insert(24, s);
-         str.insert(38, ves);
-         str.insert(47, this.CarType());
-         return str.toString();
-        //return this.name + "\t" + Boolean.toString(this.svobodna) + "\t" + this.ves;
+        str.insert(0, name);
+        str.insert(24, s);
+        str.insert(38, ves);
+        str.insert(47, this.CarType());
+        return str.toString();
     }
 
 
-    public static String[] Shapka()
-    {
+    public static String[] Shapka() {
         StringBuilder str = new StringBuilder(60);
         str.setLength(60);
-        for(int i=0; i<60;i++)
-        {
-            str.insert(i,' ');
+        for (int i = 0; i < 60; i++) {
+            str.insert(i, ' ');
         }
         str.insert(0, "Наименование");
         str.insert(24, "Доступность");
@@ -147,11 +129,10 @@ public class Car {
         str.insert(47, "Тип");
 
         String str2 = "";
-        for(int i=0; i<60;i++)
-        {
-            str2+="-";
+        for (int i = 0; i < 60; i++) {
+            str2 += "-";
         }
-        String[] result = {str.toString(),str2};
+        String[] result = {str.toString(), str2};
         return result;
     }
 

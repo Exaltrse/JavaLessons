@@ -14,8 +14,8 @@ public class Car {
     private AcousticSystem acousticSystem;
     private VehicleInterior vehicleInterior;
 
-    static{
-        manufacturer = Constants.NO_NAME;
+    static {
+        manufacturer = Supply.NO_NAME;
     }
 
     public Car() {
@@ -95,12 +95,11 @@ public class Car {
         this.vehicleInterior = vehicleInterior;
     }
 
-    public Components getComponents()
-    {
+    public Components getComponents() {
         return new Components(this.wheels, this.body, this.engeen, this.acousticSystem, this.vehicleInterior);
     }
 
-    public void setComponents(Components components){
+    public void setComponents(Components components) {
         this.wheels = components.getWheels();
         this.body = components.getBody();
         this.engeen = components.getEngeen();
@@ -108,21 +107,32 @@ public class Car {
         this.vehicleInterior = components.getVehicleInterior();
     }
 
-    public String getFullName()
-    {
+    public String getFullName() {
         return this.name + " " + this.mark;
     }
 
     public int getCost() {
-        return this.wheels.getCost()+this.body.getCost()+this.engeen.getCost()+this.acousticSystem.getCost()+this.vehicleInterior.getCost();
+        return this.wheels.getCost() + this.body.getCost() + this.engeen.getCost() + this.acousticSystem.getCost() + this.vehicleInterior.getCost();
     }
 
-    public static Car RandomCar(){
+    public static Car RandomCar() {
         Car car = new Car();
         car.setComponents(Components.RandomComponents());
-        car.setName(Constants.RandomString(10));
-        car.setMark(Constants.RandomString(5));
+        car.setName(Supply.RandomString(10));
+        car.setMark(Supply.RandomString(5));
         return car;
+    }
+
+    protected Car toClone() {
+        return new Car(
+                this.name,
+                this.mark,
+                new Components(
+                        this.wheels.toClone(),
+                        this.body.toClone(),
+                        this.engeen.toClone(),
+                        this.acousticSystem.toClone(),
+                        this.vehicleInterior.toClone()));
     }
 
     @Override
