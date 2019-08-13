@@ -76,15 +76,6 @@ public class Wheels {
         return this.name + " " + this.mark;
     }
 
-    public static Wheels RandomWheels() {
-        Wheels wheels = new Wheels();
-        wheels.setName(Supply.RandomString(12));
-        wheels.setMark(Supply.RandomString(6));
-        wheels.setNumber(Supply.RandomInt(4) + 1);
-        wheels.setUnitPrice((Supply.RandomInt(50) + 1) * 10);
-        return wheels;
-    }
-
     protected Wheels toClone() {
         return new Wheels(this.name, this.mark, this.number, this.unitPrice);
     }

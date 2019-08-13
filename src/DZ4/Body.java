@@ -74,15 +74,6 @@ public class Body {
         return this.name + " " + this.mark;
     }
 
-    public static Body RandomBody() {
-        Body body = new Body();
-        body.setName(Supply.RandomString(10));
-        body.setMark(Supply.RandomString(5));
-        body.setMaterial(Supply.RandomString(16));
-        body.setUnitPrice((Supply.RandomInt(789) + 1) * 100);
-        return body;
-    }
-
     protected Body toClone() {
         return new Body(this.name, this.mark, this.material, this.unitPrice);
     }

@@ -76,15 +76,6 @@ public class VehicleInterior {
         return this.name + " " + this.mark;
     }
 
-    public static VehicleInterior RandomVehicleInterior() {
-        VehicleInterior vehicleInterior = new VehicleInterior();
-        vehicleInterior.setName(Supply.RandomString(15));
-        vehicleInterior.setMark(Supply.RandomString(6));
-        vehicleInterior.setColor(Supply.RandomString(7));
-        vehicleInterior.setUnitPrice((Supply.RandomInt(400) + 1) * 10);
-        return vehicleInterior;
-    }
-
     protected VehicleInterior toClone() {
         return new VehicleInterior(this.name, this.mark, this.color, this.unitPrice);
     }

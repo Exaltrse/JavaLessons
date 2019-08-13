@@ -65,16 +65,6 @@ public class Components {
         this.vehicleInterior = vehicleInterior;
     }
 
-    public static Components RandomComponents() {
-        Components components = new Components();
-        components.setWheels(Wheels.RandomWheels());
-        components.setBody(Body.RandomBody());
-        components.setEngeen(Engeen.RandomEngeen());
-        components.setAcousticSystem(AcousticSystem.RandomAcousticSystem());
-        components.setVehicleInterior(VehicleInterior.RandomVehicleInterior());
-        return components;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

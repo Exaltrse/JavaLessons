@@ -3,7 +3,7 @@ package DZ5;
 import java.util.Objects;
 
 //Колеса
-public class Body extends AbstractComponent{
+public class Door extends AbstractComponent{
     private static String manufacturer;
 
     //Fields for the proposed filling. Do not participate in the task directly.
@@ -15,13 +15,13 @@ public class Body extends AbstractComponent{
         manufacturer = Supply.NO_NAME;
     }
 
-    public Body() {
+    public Door() {
         this.stringField = Supply.EMPTY_STRING;
         this.booField = Supply.BASE_BOOLEAN;
         this.intField = Supply.BASE_NUMBER_VALUE;
     }
 
-    public Body(Component component, String stringField, boolean booField, int intField) {
+    public Door(Component component, String stringField, boolean booField, int intField) {
         this.name = component.name;
         this.name = component.name;
         this.unitPrice = component.unitPrice;
@@ -36,7 +36,7 @@ public class Body extends AbstractComponent{
     }
 
     public static void setManufacturer(String manufacturer) {
-        Body.manufacturer = manufacturer;
+        Door.manufacturer = manufacturer;
     }
 
 
@@ -49,15 +49,15 @@ public class Body extends AbstractComponent{
 
 
     @Override
-    public Body toClone() {
-        return new Body(new Component(this.name, this.mark, this.unitPrice), this.stringField, this.booField,this.intField);
+    public Door toClone() {
+        return new Door(new Component(this.name, this.mark, this.unitPrice), this.stringField, this.booField,this.intField);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Body wheel = (Body) o;
+        Door wheel = (Door) o;
         return name.equals(wheel.name) &&
                 mark.equals(wheel.mark) &&
                 unitPrice == wheel.unitPrice &&
@@ -68,7 +68,7 @@ public class Body extends AbstractComponent{
 
     @Override
     public String toString() {
-        return "Body: \t" +
+        return "Door: \t" +
                 manufacturer + "\t" +
                 this.getFullName() + "\t" +
                 "String: " + stringField + "\t" +

@@ -87,16 +87,6 @@ public class Engeen {
         return this.name + " " + this.mark;
     }
 
-    public static Engeen RandomEngeen() {
-        Engeen engeen = new Engeen();
-        engeen.setName(Supply.RandomString(10));
-        engeen.setMark(Supply.RandomString(5));
-        engeen.setMaterial(Supply.RandomString(8));
-        engeen.setEnginePower((Supply.RandomInt(60) + 2) * 10);
-        engeen.setUnitPrice((Supply.RandomInt(315) + 1) * 60);
-        return engeen;
-    }
-
     protected Engeen toClone() {
         return new Engeen(this.name, this.mark, this.material, this.enginePower, this.unitPrice);
     }

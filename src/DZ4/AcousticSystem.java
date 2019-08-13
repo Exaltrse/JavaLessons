@@ -88,16 +88,6 @@ public class AcousticSystem {
         return this.name + " " + this.mark;
     }
 
-    public static AcousticSystem RandomAcousticSystem() {
-        AcousticSystem acousticSystem = new AcousticSystem();
-        acousticSystem.setName(Supply.RandomString(10));
-        acousticSystem.setMark(Supply.RandomString(5));
-        acousticSystem.setNumberOfSpeakers(Supply.RandomInt(12));
-        acousticSystem.setControlCenterUnutPrice((Supply.RandomInt(50) + 1) * 10);
-        acousticSystem.setSpeakersUnitPrice(Supply.RandomInt(30) + 1);
-        return acousticSystem;
-    }
-
     protected AcousticSystem toClone() {
         return new AcousticSystem(this.name, this.mark, this.numberOfSpeakers, this.controlCenterUnutPrice, this.speakersUnitPrice);
     }

@@ -1,85 +1,45 @@
 package DZ5;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Main {
 
-    ////Класс машина
-    //        //5 деталей
-    //        //цена для каждой детали
-    //        //название фирмы производителя через статическую переменную
-    //        //название + марка
-    //        //1. Вывести стоимость автобиля
-    //        //2. Вывести название фирмы + название модели
-    //        //3. Провести замену деталей(изменить цену)
-    //        //4. Пересчитать сумму автомобиля
+
     public static void main(String[] args) {
         Random r = new Random();
-        ArrayList<Car> carList = new ArrayList<Car>();
+        List<Vehicle> carList = new ArrayList<>();
         for (int i = 0; i < (r.nextInt(40) + 1); i++) {
-            carList.add(Car.RandomCar());
+            carList.add(Supply.randomVehicle());
         }
-//        //Создаем копию для последующего контроля работы.
-//        ArrayList<Car> bufferCarList = new ArrayList<Car>();
-//        for(Car c:carList){
-//            bufferCarList.add(c.toClone());
+//        List<Vehicle> controlList = new ArrayList<>();
+//        for(Clonable c : carList){
+//            controlList.add((Vehicle)c.toClone());
 //        }
-        System.out.println("Do izmenenij.");
-        printCar(carList);
-        Car.setManufacturer("IzmenennajaFirma");
-        for (Car car : carList) {
-            switch (r.nextInt(5)) {
-                case 0: {
-                    car.getEngeen().randomize();
-                    break;
-                }
-                case 1: {
-                    car.getBody().randomize();
-                    break;
-                }
-                case 2: {
-                    car.getAcousticSystem().randomize();
-                    break;
-                }
-                case 3: {
-                    car.getVehicleInterior().randomize();
-                    break;
-                }
-                case 4: {
-                    car.getWheels().randomize();
-                    break;
-                }
 
-            }
-
+        System.out.println("Before edit.");
+        Supply.printVehicleList(carList);
+        Vehicle.setManufacturer("Chaged Manufactury");
+        for (Vehicle car : carList) {
+            car.listOfComponents.get(r.nextInt(car.listOfComponents.size())).setUnitPrice((r.nextInt(250)+1)*20);
         }
-        System.out.println("Posle izmenenij.");
-        printCar(carList);
+        System.out.println("After edit.");
+        Supply.printVehicleList(carList);
 
-//        //Для более подробного изучения вносимых изменений.
-//        System.out.println("\n\n");
-//        printCar(bufferCarList);
-//        System.out.println("\n\n\nДля наглядности более подробное содержимое списков до и после изменений:\n");
-//        System.out.println("До изменений.");
+//        System.out.println("-------------------------------");
+//        System.out.println("More detail before edit\n");
 //        int counter = 1;
-//        for(Car c:bufferCarList){
-//            System.out.println(counter++ + "  " + c);
+//        for(Vehicle v : controlList){
+//            Supply.printDetaildVehicle(v,counter);
+//            counter++;
 //        }
-//        System.out.println("После изменений.");
+//        System.out.println("More detail after edit\n");
 //        counter = 1;
-//        for(Car c:carList){
-//            System.out.println(counter++ + "  " + c);
+//        for(Vehicle v : carList){
+//            Supply.printDetaildVehicle(v,counter);
+//            counter++;
 //        }
 
     }
-
-    private static void printCar(ArrayList<Car> carList) {
-        int counter = 1;
-        for (Car car : carList) {
-            System.out.println(counter++ + ".\t" + Car.getManufacturer() + "\t" + car.getFullName() + "\tCost: " + car.getCost());
-        }
-
-    }
-
 }

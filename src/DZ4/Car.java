@@ -115,14 +115,6 @@ public class Car {
         return this.wheels.getCost() + this.body.getCost() + this.engeen.getCost() + this.acousticSystem.getCost() + this.vehicleInterior.getCost();
     }
 
-    public static Car RandomCar() {
-        Car car = new Car();
-        car.setComponents(Components.RandomComponents());
-        car.setName(Supply.RandomString(10));
-        car.setMark(Supply.RandomString(5));
-        return car;
-    }
-
     protected Car toClone() {
         return new Car(
                 this.name,
