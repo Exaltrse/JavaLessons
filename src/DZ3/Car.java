@@ -1,7 +1,6 @@
 package DZ3;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class Car {
 
@@ -20,7 +19,7 @@ public class Car {
     double ves;
 
     public Car() {
-        Car tmp = Car.RandomCar();
+        Car tmp = Support.randomCar();
         this.name = tmp.name;
         this.svobodna = tmp.svobodna;
         this.ves = tmp.ves;
@@ -64,9 +63,8 @@ public class Car {
 
     //----------
 
-    public String CarType() {
+    public String carType() {
         String[] results = {"легковой", "джип", "грузовой"};
-        //я не знаю, как логично дабл запихать в свитч, если в джаве свитч не поддерживает диапазоны!!!
         int switcher = 0;
         if ((ves >= 0) && (ves < 500)) switcher = 0;
         else if ((ves >= 500) && (ves < 1000)) switcher = 1;
@@ -87,18 +85,6 @@ public class Car {
         }
     }
 
-    public static Car RandomCar() {
-        String name = "";
-        Random r = new Random();
-        double ves = ((double) Math.round(r.nextDouble() * 300000)) / 100;
-        boolean svobodna = r.nextBoolean();
-        int dlinnaSlova = r.nextInt(15) + 5;
-        for (int i = 0; i <= dlinnaSlova; i++) {
-            name += (char) (r.nextInt(26) + 'a');
-        }
-        return new Car(name, svobodna, ves);
-    }
-
     @Override
     public String toString() {
         String s = "";
@@ -112,28 +98,8 @@ public class Car {
         str.insert(0, name);
         str.insert(24, s);
         str.insert(38, ves);
-        str.insert(47, this.CarType());
+        str.insert(47, this.carType());
         return str.toString();
-    }
-
-
-    public static String[] Shapka() {
-        StringBuilder str = new StringBuilder(60);
-        str.setLength(60);
-        for (int i = 0; i < 60; i++) {
-            str.insert(i, ' ');
-        }
-        str.insert(0, "Наименование");
-        str.insert(24, "Доступность");
-        str.insert(38, "Вес");
-        str.insert(47, "Тип");
-
-        String str2 = "";
-        for (int i = 0; i < 60; i++) {
-            str2 += "-";
-        }
-        String[] result = {str.toString(), str2};
-        return result;
     }
 
     @Override
