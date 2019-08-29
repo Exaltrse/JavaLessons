@@ -5,10 +5,10 @@ import java.util.Objects;
 public class Client {
 
     private Long id;
-    private Enum<QuestionType> questionType;
+    private QuestionType questionType;
     private Object clientInfo;
 
-    public Client(Long id, Enum<QuestionType> questionType, Object clientInfo) {
+    public Client(Long id, QuestionType questionType, Object clientInfo) {
         this.id = id;
         this.questionType = questionType;
         this.clientInfo = clientInfo;
@@ -22,11 +22,11 @@ public class Client {
         this.id = id;
     }
 
-    public Enum<QuestionType> getQuestionType() {
+    public QuestionType getQuestionType() {
         return questionType;
     }
 
-    public void setQuestionType(Enum<QuestionType> questionType) {
+    public void setQuestionType(QuestionType questionType) {
         this.questionType = questionType;
     }
 
