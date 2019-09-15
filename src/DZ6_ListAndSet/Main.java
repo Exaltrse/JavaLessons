@@ -72,6 +72,75 @@ public class Main {
             Supply.printBookList(bookList);
 
         }
+        {
+            //Task 4
+            System.out.println("******* TreeSet *******");
+            Set<Student> studentSet = new TreeSet<>();
+            int count = 100;
+            for(int i = 0; i<count; i++){
+                studentSet.add(Supply.randomStudent());
+            }
+            Iterator<Student> iterator = studentSet.iterator();
+            for(int i=0;iterator.hasNext();i++){
+                if(i%2==0){
+                    Student tmpStudent = iterator.next();
+                    System.out.println(tmpStudent);
+                }
+                else{
+                    iterator.remove();
+                }
+
+            }
+        }
+        //Task5
+        {
+            Map<String, Long> onlinerMap = new HashMap<>();
+            onlinerMap.put("Cathegory 1", 13l);
+            onlinerMap.put("Cathegory 2", 0l);
+            onlinerMap.put("Cathegory 3", 1653l);
+            onlinerMap.put("Cathegory 4", 9851l);
+            onlinerMap.put("Cathegory 5", 31226l);
+            onlinerMap.put("Cathegory 6", 645l);
+            onlinerMap.put("Cathegory 7", 98l);
+            onlinerMap.put("Cathegory 8", 0l);
+            onlinerMap.put("Cathegory 9", 9845l);
+            onlinerMap.put("Cathegory 10", 312l);
+            onlinerMap.put("Cathegory 11", 461l);
+            List<Map.Entry<String, Long>> sortedList = new LinkedList<>(onlinerMap.entrySet());
+            Collections.sort(sortedList, new Comparator<Map.Entry<String, Long>>() {
+                @Override
+                public int compare(Map.Entry<String, Long> o1, Map.Entry<String, Long> o2) {
+                    return o1.getValue().compareTo(o2.getValue());
+                }
+            });
+            System.out.println("******* SortedCollection *******");
+            for(Map.Entry<String, Long> m : sortedList){
+                System.out.println(m.getKey() + "   " + m.getValue());
+            }
+            System.out.println("******* MaxNumberOfProducts *******");
+            Long compare = Long.MIN_VALUE;
+            Map.Entry<String, Long> entry = null;
+            Set<Map.Entry<String, Long>> setEmptyEntryes = new HashSet<>();
+            for(Map.Entry<String, Long> m : sortedList){
+                if(m.getValue()>compare) {
+                    compare=m.getValue();
+                    entry = m;
+                }
+                if(m.getValue()<=0L){
+                    setEmptyEntryes.add(m);
+                }
+            }
+            System.out.println("Max number of products is in " + entry.getKey() + ". It is " + entry.getValue() + ".");
+            System.out.println("******* RemoveEmptyCategories *******");
+            for(Map.Entry<String, Long> s:setEmptyEntryes){
+                onlinerMap.remove(s.getKey());
+            }
+            for(Map.Entry<String,Long> m : onlinerMap.entrySet()){
+                System.out.println(m.getKey()+"   "+m.getValue());
+            }
+
+
+        }
 
 
     }

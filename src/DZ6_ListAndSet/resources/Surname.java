@@ -1,4 +1,4 @@
-package DZ6_ListAndSet;
+package DZ6_ListAndSet.resources;
 
 public enum Surname {
     Иванов,
